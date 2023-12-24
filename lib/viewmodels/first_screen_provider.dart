@@ -67,6 +67,11 @@ class FirstScreenProvider with ChangeNotifier {
   void nextScreen(BuildContext context) {
     if (!formKey.currentState!.validate()) return;
 
-    Navigator.of(context).pushNamed('/second');
+    Navigator.of(context).pushNamed(
+      '/second',
+      arguments: {
+        "name": nameController.text,
+      },
+    );
   }
 }

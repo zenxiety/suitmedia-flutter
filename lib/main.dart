@@ -5,6 +5,7 @@ import 'package:suitmedia_mobile_intern/utils/constants/colors.dart';
 import 'package:suitmedia_mobile_intern/viewmodels/first_screen_provider.dart';
 import 'package:suitmedia_mobile_intern/views/screens/first_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:suitmedia_mobile_intern/views/screens/second_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,6 +77,15 @@ class MyApp extends StatelessWidget {
             case "/first":
               return MaterialPageRoute(
                 builder: (context) => const FirstScreen(),
+              );
+            case "/second":
+              return MaterialPageRoute(
+                builder: (context) {
+                  final args = settings.arguments as Map<String, String>;
+                  return SecondScreen(
+                    args: args,
+                  );
+                },
               );
           }
 
