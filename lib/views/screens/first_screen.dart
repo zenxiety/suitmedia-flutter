@@ -54,6 +54,7 @@ class _FirstScreenState extends State<FirstScreen> {
                     const SizedBox(height: 58),
                     Form(
                       key: state.formKey,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
