@@ -7,24 +7,34 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
+import 'package:suitmedia_mobile_intern/viewmodels/second_screen_provider.dart';
 
-import 'package:suitmedia_mobile_intern/main.dart';
+import 'package:suitmedia_mobile_intern/views/screens/second_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets(
+    'Second Screen UI',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider(
+              create: (context) => SecondScreenProvider(),
+            ),
+          ],
+          child: const MaterialApp(
+            home: SecondScreen(args: {}),
+          ),
+        ),
+      );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      await tester.pumpAndSettle();
+      await tester.pump();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+      expect(find.text("Second Screen"), findsOneWidget);
+      expect(find.text("Welcome"), findsOneWidget);
+      expect(find.text("Tracey Ramos"), findsNothing);
+    },
+  );
 }

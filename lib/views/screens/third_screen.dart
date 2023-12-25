@@ -65,6 +65,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
       ),
       backgroundColor: Colors.white,
       body: RefreshIndicator(
+        color: ColorPalette.blue,
         onRefresh: () async {
           Provider.of<ThirdScreenProvider>(context, listen: false).getUsers();
         },
