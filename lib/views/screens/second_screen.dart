@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:suitmedia_mobile_intern/utils/constants/colors.dart';
+import 'package:suitmedia_mobile_intern/viewmodels/second_screen_provider.dart';
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
   final Map<String, String> args;
 
   const SecondScreen({super.key, required this.args});
+
+  @override
+  State<SecondScreen> createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
+  late final SecondScreenProvider provider;
+
+  @override
+  void initState() {
+    provider = Provider.of<SecondScreenProvider>(context, listen: false);
+    provider.getUserName();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,28 +60,33 @@ class SecondScreen extends StatelessWidget {
               ),
             ),
             Text(
-              args["name"] ?? "",
+              widget.args["name"] ?? "",
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const Expanded(
+            Expanded(
               child: Center(
-                child: Text(
-                  "Selected User Name",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                child: Consumer<SecondScreenProvider>(
+                    builder: (context, state, _) {
+                  return Text(
+                    state.username == null
+                        ? "Selected User Name"
+                        : state.username!,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  );
+                }),
               ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, '/third'),
                   child: const Text(
                     "Choose a User",
                   ),
