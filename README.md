@@ -1,16 +1,49 @@
-# suitmedia_mobile_intern
+# Suitmedia Mobile Developer Intern 2023 - Flutter
 
-A new Flutter project.
+Andyan Yogawardhana
 
-## Getting Started
+## App Screenshots
 
-This project is a starting point for a Flutter application.
+### First Screen
 
-A few resources to get you started if this is your first Flutter project:
+- Initial State
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![first-initial](assets/images/image-1.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Filled Text Fields
+
+![first-filled](assets/images/image-2.png)
+
+- Input Error
+
+![first-error](assets/images/image-3.png)
+
+- Palindrome Check
+
+  - is palindrome
+
+    ![first-is-palindrome](assets/images/image-4.png)
+
+  - not palindrome
+
+    ![first-not-palindrome](assets/images/image-5.png)
+
+### Second Screen
+
+- Initial State
+
+![second-initial](assets/images/image-6.png)
+
+- Selected User Name
+
+![second-selected-username](assets/images/image-7.png)
+
+### Third Screen
+
+- Initial User List from [regres.in](https://reqres.in/api/users?page=1&per_page=10n)
+
+![third-initial-user-list](assets/images/image-8.png)
+
+- Error State
+
+![third-error](assets/images/image-9.png)
