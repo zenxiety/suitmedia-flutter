@@ -10,10 +10,11 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
+  late final FirstScreenProvider provider;
+
   @override
   void initState() {
-    final FirstScreenProvider provider =
-        Provider.of<FirstScreenProvider>(context, listen: false);
+    provider = Provider.of<FirstScreenProvider>(context, listen: false);
     provider.formKey = GlobalKey();
     provider.nameController = TextEditingController();
     provider.sentenceController = TextEditingController();
@@ -23,8 +24,6 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   void dispose() {
-    final FirstScreenProvider provider =
-        Provider.of<FirstScreenProvider>(context, listen: false);
     provider.nameController.dispose();
     provider.sentenceController.dispose();
     super.dispose();

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:suitmedia_mobile_intern/utils/constants/colors.dart';
 import 'package:suitmedia_mobile_intern/viewmodels/first_screen_provider.dart';
+import 'package:suitmedia_mobile_intern/viewmodels/second_screen_provider.dart';
+import 'package:suitmedia_mobile_intern/viewmodels/third_screen_provider.dart';
 import 'package:suitmedia_mobile_intern/views/screens/first_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:suitmedia_mobile_intern/views/screens/second_screen.dart';
+import 'package:suitmedia_mobile_intern/views/screens/third_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => FirstScreenProvider()),
+        ChangeNotifierProvider(create: (context) => SecondScreenProvider()),
+        ChangeNotifierProvider(create: (context) => ThirdScreenProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: kDebugMode,
@@ -86,6 +91,10 @@ class MyApp extends StatelessWidget {
                     args: args,
                   );
                 },
+              );
+            case "/third":
+              return MaterialPageRoute(
+                builder: (context) => const ThirdScreen(),
               );
           }
 
